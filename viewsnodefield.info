@@ -3,8 +3,3 @@ name = Views node field
 description = For that cool views plugin that just doesn't support node row display.
 package = Views
 backdrop = 1.x
-
-; Added by Backdrop CMS packaging script on 2016-02-11
-project = viewsnodefield
-version = 1.x-1.0.x
-timestamp = 1455219237

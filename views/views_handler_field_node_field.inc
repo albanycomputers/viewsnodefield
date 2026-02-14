@@ -18,7 +18,6 @@ class views_handler_field_node_field extends views_handler_field {
     $options['build_mode'] = array('default' => 'teaser');
     $options['links'] = array('default' => TRUE);
     $options['comments'] = array('default' => FALSE);
-    $options['title_display'] = array('default' => TRUE);
 
     return $options;
   }
@@ -56,11 +55,6 @@ class views_handler_field_node_field extends views_handler_field {
       '#title' => t('Display node comments'),
       '#default_value' => $this->options['comments'],
     );
-    $form['title_display'] = array(
-      '#type' => 'checkbox',
-      '#title' => t('Display title'),
-      '#default_value' => $this->options['title_display'],
-    );
   }
 
   function query() {
@@ -84,10 +78,6 @@ class views_handler_field_node_field extends views_handler_field {
       if (!empty($options['comments']) && user_access('access comments') && $node->comment) {
         $content['comments'] = comment_node_page_additions($node);
       }
-      if (empty($options['title_display'])) {
-        unset($content['#node']->title);
-      }
-
       return backdrop_render($content);
     }
     return array();
